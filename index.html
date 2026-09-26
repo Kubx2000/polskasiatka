@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siatkówka Polska</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            color: #111;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d50000, #ffffff);
+            padding: 35px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background: #111;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px #0002;
+            margin-bottom: 30px;
+        }
+
+        .hero h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .final {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .time {
+            font-size: 20px;
+            color: #d00000;
+            font-weight: bold;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px #0001;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+        }
+
+        .match {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            gap: 10px;
+        }
+
+        .match:last-child {
+            border-bottom: none;
+        }
+
+        .result {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .upcoming {
+            background: #fff3f3;
+            border-radius: 10px;
+            border: 2px solid #d00000;
+        }
+
+        .live {
+            color: #d00000;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            .match {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇵🇱 SIATKÓWKA POLSKA</h1>
+    <p>Aktualne wyniki reprezentacji Polski</p>
+</header>
+
+<nav>
+    <a href="#wyniki">Wyniki</a>
+    <a href="#final">Finał</a>
+    <a href="#terminarz">Terminarz</a>
+</nav>
+
+<main>
+
+    <section class="hero" id="final">
+        <h2>🏆 FINAŁ ME 2026</h2>
+
+        <div class="final">
+            🇵🇱 POLSKA &nbsp; VS &nbsp; FRANCJA 🇫🇷
+        </div>
+
+        <div class="time">
+            26 września 2026 • 21:00
+        </div>
+
+        <p style="margin-top:15px;">
+            Wielki finał Mistrzostw Europy
+        </p>
+    </section>
+
+
+    <section class="section" id="wyniki">
+        <h2>🔥 Ostatnie wyniki Polski</h2>
+
+        <div class="match">
+            <span>🇵🇱 Polska</span>
+            <span class="result">3 : 0</span>
+            <span>🇸🇮 Słowenia</span>
+        </div>
+
+        <div class="match">
+            <span>🇵🇱 Polska</span>
+            <span class="result">3 : 0</span>
+            <span>🇩🇪 Niemcy</span>
+        </div>
+
+        <div class="match">
+            <span>🇵🇱 Polska</span>
+            <span class="result">3 : 0</span>
+            <span>🇱🇻 Łotwa</span>
+        </div>
+
+        <div class="match">
+            <span>🇵🇱 Polska</span>
+            <span class="result">2 : 3</span>
+            <span>🇧🇬 Bułgaria</span>
+        </div>
+
+        <div class="match">
+            <span>🇵🇱 Polska</span>
+            <span class="result">3 : 0</span>
+            <span>🇺🇦 Ukraina</span>
+        </div>
+
+        <div class="match">
+            <span>🇵🇱 Polska</span>
+            <span class="result">3 : 0</span>
+            <span>🇲🇰 Macedonia Północna</span>
+        </div>
+
+        <div class="match">
+            <span>🇵🇱 Polska</span>
+            <span class="result">3 : 0</span>
+            <span>🇮🇱 Izrael</span>
+        </div>
+
+        <div class="match">
+            <span>🇵🇱 Polska</span>
+            <span class="result">3 : 0</span>
+            <span>🇵🇹 Portugalia</span>
+        </div>
+    </section>
+
+
+    <section class="section" id="terminarz">
+        <h2>📅 Najbliższy mecz</h2>
+
+        <div class="match upcoming">
+            <span>🇵🇱 POLSKA</span>
+            <span class="result">21:00</span>
+            <span>🇫🇷 FRANCJA</span>
+        </div>
+
+        <p style="text-align:center; margin-top:15px;">
+            26.09.2026 • Finał Mistrzostw Europy
+        </p>
+    </section>
+
+
+    <section class="section">
+        <h2>📊 Stan turnieju</h2>
+
+        <p>🇵🇱 Polska awansowała do finału po zwycięstwie 3:0 nad Słowenią.</p>
+        <p style="margin-top:10px;">
+            🇫🇷 Francja awansowała po zwycięstwie 3:1 nad Finlandią.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Siatkówka Polska</p>
+    <p>Wyniki aktualizowane na podstawie dostępnych danych</p>
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zawodnicy Polski 2026</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f3f6;
+            color: #111;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d00000, #ffffff);
+            padding: 35px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background: #111;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            margin-bottom: 25px;
+        }
+
+        .players {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .player {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px #0002;
+            transition: 0.2s;
+        }
+
+        .player:hover {
+            transform: translateY(-5px);
+        }
+
+        .player-photo {
+            height: 230px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+        }
+
+        .player-info {
+            padding: 20px;
+        }
+
+        .player-info h3 {
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .position {
+            color: #d00000;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .data {
+            line-height: 1.8;
+        }
+
+        .data b {
+            color: #555;
+        }
+
+        .bio {
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 850px) {
+            .players {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .players {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇵🇱 Reprezentacja Polski 2026</h1>
+    <p>Zawodnicy na Mistrzostwa Europy</p>
+</header>
+
+<nav>
+    <a href="index.html">Strona główna</a>
+    <a href="zawodnicy.html">Zawodnicy</a>
+</nav>
+
+<main>
+
+    <h2>🏐 Kadra Polski 2026</h2>
+
+    <div class="players">
+
+        <!-- JAN FIRLEJ -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Jan Firlej</h3>
+                <div class="position">Rozgrywający</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 96</p>
+                    <p><b>Rok urodzenia:</b> 1996</p>
+                    <p><b>Wzrost:</b> 188 cm</p>
+                    <p><b>Klub:</b> Projekt Warszawa</p>
+                </div>
+
+                <p class="bio">
+                    Polski rozgrywający i reprezentant kraju.
+                    W 2026 roku znalazł się w kadrze Polski na ME.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- MARCIN KOMENDA -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Marcin Komenda</h3>
+                <div class="position">Rozgrywający</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 4</p>
+                    <p><b>Rok urodzenia:</b> 1996</p>
+                    <p><b>Wzrost:</b> 198 cm</p>
+                    <p><b>Klub:</b> Bogdanka LUK Lublin</p>
+                </div>
+
+                <p class="bio">
+                    Doświadczony polski rozgrywający.
+                    Występuje w reprezentacji Polski oraz klubie Bogdanka LUK Lublin.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- TOMASZ FORNAL -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Tomasz Fornal</h3>
+                <div class="position">Przyjmujący</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 21</p>
+                    <p><b>Rok urodzenia:</b> 1997</p>
+                    <p><b>Wzrost:</b> 200 cm</p>
+                    <p><b>Klub:</b> Aluron CMC Warta Zawiercie</p>
+                </div>
+
+                <p class="bio">
+                    Polski przyjmujący i reprezentant kraju.
+                    Jeden z zawodników kadry Polski na ME 2026.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- WILFREDO LEON -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Wilfredo León</h3>
+                <div class="position">Przyjmujący</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 9</p>
+                    <p><b>Rok urodzenia:</b> 1993</p>
+                    <p><b>Wzrost:</b> 201 cm</p>
+                    <p><b>Klub:</b> Bogdanka LUK Lublin</p>
+                </div>
+
+                <p class="bio">
+                    Przyjmujący reprezentacji Polski.
+                    Znany z bardzo mocnej zagrywki i skutecznego ataku.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- KAMIL SEMENIUK -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Kamil Semeniuk</h3>
+                <div class="position">Przyjmujący</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 16</p>
+                    <p><b>Rok urodzenia:</b> 1996</p>
+                    <p><b>Wzrost:</b> 195 cm</p>
+                    <p><b>Klub:</b> Sir Safety Perugia</p>
+                </div>
+
+                <p class="bio">
+                    Reprezentant Polski występujący na pozycji przyjmującego.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- ARTUR SZALPUK -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Artur Szalpuk</h3>
+                <div class="position">Przyjmujący</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 12</p>
+                    <p><b>Rok urodzenia:</b> 1995</p>
+                    <p><b>Wzrost:</b> 201 cm</p>
+                    <p><b>Klub:</b> Asseco Resovia</p>
+                </div>
+
+                <p class="bio">
+                    Polski przyjmujący i reprezentant kraju.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- ALEKSANDER ŚLIWKA -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Aleksander Śliwka</h3>
+                <div class="position">Przyjmujący • Kapitan</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 11</p>
+                    <p><b>Rok urodzenia:</b> 1995</p>
+                    <p><b>Wzrost:</b> 196 cm</p>
+                    <p><b>Klub:</b> Projekt Warszawa</p>
+                </div>
+
+                <p class="bio">
+                    Doświadczony reprezentant Polski.
+                    W kadrze 2026 pełni funkcję kapitana.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- SZYMON JAKUBISZAK -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Szymon Jakubiszak</h3>
+                <div class="position">Środkowy</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 34</p>
+                    <p><b>Rok urodzenia:</b> 1998</p>
+                    <p><b>Wzrost:</b> 210 cm</p>
+                    <p><b>Klub:</b> ZAKSA Kędzierzyn-Koźle</p>
+                </div>
+
+                <p class="bio">
+                    Polski środkowy reprezentujący kraj w sezonie 2026.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- BARTŁOMIEJ LEMAŃSKI -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Bartłomiej Lemański</h3>
+                <div class="position">Środkowy</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 7</p>
+                    <p><b>Rok urodzenia:</b> 1996</p>
+                    <p><b>Wzrost:</b> 217 cm</p>
+                    <p><b>Klub:</b> Projekt Warszawa</p>
+                </div>
+
+                <p class="bio">
+                    Środkowy reprezentacji Polski.
+                    Jego głównym zadaniem jest gra w bloku i ataku ze środka.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- JAKUB NOWAK -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Jakub Nowak</h3>
+                <div class="position">Środkowy</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 73</p>
+                    <p><b>Rok urodzenia:</b> 2005</p>
+                    <p><b>Wzrost:</b> 205 cm</p>
+                    <p><b>Klub:</b> Norwid Częstochowa</p>
+                </div>
+
+                <p class="bio">
+                    Młody polski środkowy i reprezentant kraju.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- BARTŁOMIEJ BOŁĄDŹ -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Bartłomiej Bołądź</h3>
+                <div class="position">Atakujący</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 30</p>
+                    <p><b>Rok urodzenia:</b> 1994</p>
+                    <p><b>Wzrost:</b> 204 cm</p>
+                    <p><b>Klub:</b> Aluron CMC Warta Zawiercie</p>
+                </div>
+
+                <p class="bio">
+                    Polski atakujący i reprezentant kraju.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- KEWIN SASAK -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Kewin Sasak</h3>
+                <div class="position">Atakujący</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 35</p>
+                    <p><b>Rok urodzenia:</b> 1997</p>
+                    <p><b>Wzrost:</b> 208 cm</p>
+                    <p><b>Klub:</b> Bogdanka LUK Lublin</p>
+                </div>
+
+                <p class="bio">
+                    Polski atakujący i reprezentant kraju.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- JAKUB POPIWCZAK -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Jakub Popiwczak</h3>
+                <div class="position">Libero</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 3</p>
+                    <p><b>Rok urodzenia:</b> 1996</p>
+                    <p><b>Wzrost:</b> 180 cm</p>
+                    <p><b>Klub:</b> Aluron CMC Warta Zawiercie</p>
+                </div>
+
+                <p class="bio">
+                    Doświadczony polski libero i reprezentant kraju.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- MAKSYMILIAN GRANIECZNY -->
+
+        <div class="player">
+            <div class="player-photo">🏐</div>
+
+            <div class="player-info">
+                <h3>Maksymilian Granieczny</h3>
+                <div class="position">Libero</div>
+
+                <div class="data">
+                    <p><b>Numer:</b> 18</p>
+                    <p><b>Rok urodzenia:</b> 2005</p>
+                    <p><b>Wzrost:</b> 179 cm</p>
+                    <p><b>Klub:</b> Ślepsk Malow Suwałki</p>
+                </div>
+
+                <p class="bio">
+                    Młody polski libero i reprezentant Polski.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 Siatkówka Polska</p>
+</footer>
+
+</body>
+</html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
