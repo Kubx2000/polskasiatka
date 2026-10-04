@@ -155,23 +155,12 @@
     <a href="#terminarz">Terminarz</a>
 </nav>
 
-<main>
 
-    <section class="hero" id="final">
-        <h2>🏆 FINAŁ ME 2026</h2>
 
-        <div class="final">
-            🇵🇱 POLSKA &nbsp; VS &nbsp; FRANCJA 🇫🇷
-        </div>
-
-        <div class="time">
-            26 września 2026 • 21:00
-        </div>
-
-        <p style="margin-top:15px;">
-            Wielki finał Mistrzostw Europy
-        </p>
-    </section>
+     <div class="match">
+  <h2>🇵🇱 Polska 3 : 0 Francja 🇫🇷</h2>
+  <p>🏆 Polska wygrywa!</p>
+</div>
 
 
     <section class="section" id="wyniki">
@@ -753,3 +742,394 @@
 </body>
 </html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<section id="plusliga">
+
+  <h1>🏐 PlusLiga</h1>
+
+  <div class="plusliga-menu">
+    <button onclick="pokazPL('tabela')">Tabela</button>
+    <button onclick="pokazPL('wyniki')">Dodaj wynik</button>
+  </div>
+
+  <div id="pl-tabela">
+    <h2>Tabela PlusLigi</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Drużyna</th>
+          <th>M</th>
+          <th>W</th>
+          <th>P</th>
+          <th>PKT</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaPL"></tbody>
+    </table>
+  </div>
+
+  <div id="pl-wyniki" style="display:none">
+
+    <h2>Dodaj wynik meczu</h2>
+
+    <label>Gospodarz</label>
+    <select id="gospodarz"></select>
+
+    <label>Gość</label>
+    <select id="gosc"></select>
+
+    <label>Wynik</label>
+    <select id="wynik">
+      <option value="3:0">3:0</option>
+      <option value="3:1">3:1</option>
+      <option value="3:2">3:2</option>
+      <option value="2:3">2:3</option>
+      <option value="1:3">1:3</option>
+      <option value="0:3">0:3</option>
+    </select>
+
+    <button onclick="dodajWynik()">DODAJ WYNIK</button>
+
+    <h2>Rozegrane mecze</h2>
+    <div id="listaWynikow"></div>
+
+  </div>
+
+</section>
+
+<style>
+
+#plusliga {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.plusliga-menu {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+#plusliga button {
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#plusliga button:hover {
+  background: #2563eb;
+}
+
+#plusliga select {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  margin: 8px 0 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#plusliga table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  color: #111;
+}
+
+#plusliga th,
+#plusliga td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+#plusliga th {
+  background: #111827;
+  color: white;
+}
+
+#plusliga td:nth-child(2) {
+  text-align: left;
+  font-weight: bold;
+}
+
+.wynikPL {
+  padding: 12px;
+  margin: 8px 0;
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+@media(max-width:600px) {
+
+  #plusliga {
+    padding: 10px;
+  }
+
+  #plusliga table {
+    font-size: 12px;
+  }
+
+  #plusliga th,
+  #plusliga td {
+    padding: 7px 3px;
+  }
+
+}
+
+</style>
+
+<script>
+
+const druzynyPL = [
+
+ 
+  "Aluron CMC Warta Zawiercie",
+  "Projekt Warszawa",
+  "ZAKSA Kędzierzyn-Koźle",
+  "Asseco Resovia Rzeszów",
+  "Bogdanka LUK Lublin",
+  "Trefl Gdańsk",
+  "Indykpol AZS Olsztyn",
+  "Ślepsk Malow Suwałki",
+  "Steam Hemarpol Norwid Częstochowa",
+  "Cuprum Stilon Gorzów",
+  "GKS Katowice",
+  "PSG Stal Nysa",
+  "Barkom Każany Lwów",
+  "Czarni Radom"
+];
+
+let meczePL = [];
+
+let tabelaPL = {};
+
+function przygotujTabele() {
+
+  tabelaPL = {};
+
+  druzynyPL.forEach(druzyna => {
+
+    tabelaPL[druzyna] = {
+
+      mecze: 0,
+      wygrane: 0,
+      przegrane: 0,
+      punkty: 0
+
+    };
+
+  });
+
+}
+
+function pokazPL(co) {
+
+  document.getElementById("pl-tabela").style.display =
+    co === "tabela" ? "block" : "none";
+
+  document.getElementById("pl-wyniki").style.display =
+    co === "wyniki" ? "block" : "none";
+
+}
+
+function uzupelnijDruzyny() {
+
+  const gospodarze = document.getElementById("gospodarz");
+  const goscie = document.getElementById("gosc");
+
+  druzynyPL.forEach(druzyna => {
+
+    gospodarze.innerHTML +=
+      `<option value="${druzyna}">${druzyna}</option>`;
+
+    goscie.innerHTML +=
+      `<option value="${druzyna}">${druzyna}</option>`;
+
+  });
+
+}
+
+function dodajWynik() {
+
+  const gospodarz =
+    document.getElementById("gospodarz").value;
+
+  const gosc =
+    document.getElementById("gosc").value;
+
+  const wynik =
+    document.getElementById("wynik").value;
+
+  if (gospodarz === gosc) {
+
+    alert("Nie możesz wybrać tej samej drużyny");
+
+    return;
+
+  }
+
+  const [setyGospodarz, setyGosc] =
+    wynik.split(":").map(Number);
+
+  meczePL.push({
+
+    gospodarz: gospodarz,
+    gosc: gosc,
+    wynik: wynik,
+    setyGospodarz: setyGospodarz,
+    setyGosc: setyGosc
+
+  });
+
+  przeliczTabele();
+
+  pokazWyniki();
+
+}
+
+function przeliczTabele() {
+
+  przygotujTabele();
+
+  meczePL.forEach(mecz => {
+
+    const gospodarze =
+      tabelaPL[mecz.gospodarz];
+
+    const goscie =
+      tabelaPL[mecz.gosc];
+
+    gospodarze.mecze++;
+    goscie.mecze++;
+
+    if (mecz.setyGospodarz > mecz.setyGosc) {
+
+      gospodarze.wygrane++;
+      goscie.przegrane++;
+
+      if (mecz.setyGospodarz === 3 &&
+          mecz.setyGosc === 2) {
+
+        gospodarze.punkty += 2;
+        goscie.punkty += 1;
+
+      } else {
+
+        gospodarze.punkty += 3;
+
+      }
+
+    } else {
+
+      goscie.wygrane++;
+      gospodarze.przegrane++;
+
+      if (mecz.setyGosc === 3 &&
+          mecz.setyGospodarz === 2) {
+
+        goscie.punkty += 2;
+        gospodarze.punkty += 1;
+
+      } else {
+
+        goscie.punkty += 3;
+
+      }
+
+    }
+
+  });
+
+  wyswietlTabele();
+
+}
+
+function wyswietlTabele() {
+
+  const tbody =
+    document.getElementById("tabelaPL");
+
+  const posortowane =
+    Object.entries(tabelaPL)
+      .sort((a,b) => {
+
+        if (b[1].punkty !== a[1].punkty) {
+
+          return b[1].punkty - a[1].punkty;
+
+        }
+
+        return b[1].wygrane - a[1].wygrane;
+
+      });
+
+  tbody.innerHTML = "";
+
+  posortowane.forEach((druzyna, index) => {
+
+    tbody.innerHTML += `
+
+      <tr>
+
+        <td>${index + 1}</td>
+
+        <td>${druzyna[0]}</td>
+
+        <td>${druzyna[1].mecze}</td>
+
+        <td>${druzyna[1].wygrane}</td>
+
+        <td>${druzyna[1].przegrane}</td>
+
+        <td><b>${druzyna[1].punkty}</b></td>
+
+      </tr>
+
+    `;
+
+  });
+
+}
+
+function pokazWyniki() {
+
+  const lista =
+    document.getElementById("listaWynikow");
+
+  lista.innerHTML = "";
+
+  meczePL.forEach((mecz, index) => {
+
+    lista.innerHTML += `
+
+      <div class="wynikPL">
+
+        <b>${mecz.gospodarz}</b>
+
+        ${mecz.wynik}
+
+        <b>${mecz.gosc}</b>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+przygotujTabele();
+
+uzupelnijDruzyny();
+
+wyswietlTabele();
+
+</script>
