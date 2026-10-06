@@ -1,1033 +1,565 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siatkówka Polska</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+<title>Polska Siatkówka</title>
+
 <style>
-.menu {
-    width: 95%;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #06101f;
+    color: white;
+}
+
+/* GÓRA STRONY */
+
+header {
+    background: linear-gradient(135deg, #071a35, #0d2b52);
+    padding: 25px;
+    text-align: center;
+    border-bottom: 3px solid #e30613;
+}
+
+header h1 {
+    font-size: 38px;
+    color: white;
+}
+
+header h1 span {
+    color: #e30613;
+}
+
+header p {
+    margin-top: 8px;
+    color: #bfcbe0;
+}
+
+/* OBRAMÓWKA Z ZAKŁADKAMI */
+
+.menu-box {
+    width: 94%;
     margin: 20px auto;
     padding: 10px;
     background: linear-gradient(135deg, #07152d, #102b52);
     border: 2px solid #e30613;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(227, 6, 19, 0.35);
+    box-shadow: 0 0 25px rgba(227, 6, 19, 0.25);
+}
+
+.menu {
     display: flex;
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
 }
 
-.menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 12px 20px;
-    border-radius: 12px;
-    border: 1px solid #31527d;
+.menu button {
     background: #0b1d38;
+    color: white;
+    border: 1px solid #31527d;
+    padding: 13px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
     transition: 0.2s;
 }
 
-.menu a:hover {
+.menu button:hover {
     background: #e30613;
     border-color: white;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(227, 6, 19, 0.4);
 }
 
-.menu a.active {
+.menu button.active {
     background: #e30613;
-    border-color: #fff;
+    border-color: white;
 }
+
+/* GŁÓWNA ZAWARTOŚĆ */
+
+.container {
+    width: 94%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* BANER */
+
+.hero {
+    background: linear-gradient(135deg, #0b2445, #071426);
+    border: 2px solid #1d4d7c;
+    border-radius: 20px;
+    padding: 45px;
+    margin-bottom: 25px;
+}
+
+.hero h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero h2 span {
+    color: #e30613;
+}
+
+.hero p {
+    color: #c4d1e4;
+    font-size: 18px;
+}
+
+/* KARTY */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #0b1d38;
+    border: 1px solid #244b75;
+    border-radius: 16px;
+    padding: 22px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #e30613;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.card p {
+    color: #b7c5d9;
+    line-height: 1.5;
+}
+
+/* NAGŁÓWKI */
+
+.section-title {
+    margin-bottom: 20px;
+    font-size: 30px;
+    border-left: 5px solid #e30613;
+    padding-left: 12px;
+}
+
+/* LIVE */
+
+.live-match {
+    background: #0b1d38;
+    border: 1px solid #244b75;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.live {
+    display: inline-block;
+    background: #e30613;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.score {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 12px;
+}
+
+/* TABELA */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #0b1d38;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #244b75;
+}
+
+th {
+    background: #e30613;
+}
+
+/* STOPKA */
+
+footer {
+    margin-top: 40px;
+    padding: 25px;
+    text-align: center;
+    background: #040b16;
+    color: #8ea0b8;
+    border-top: 2px solid #e30613;
+}
+
+/* TELEFON */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .hero {
+        padding: 25px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .menu button {
+        width: 100%;
+    }
+
+}
+
 </style>
-
-<nav class="menu">
-    <a href="#glowna" class="active">🏠 Strona główna</a>
-    <a href="#live">📡 Wyniki LIVE</a>
-    <a href="#plusliga">🏆 PlusLiga</a>
-    <a href="#reprezentacja">🇵🇱 Reprezentacja</a>
-    <a href="#zawodnicy">👤 Zawodnicy</a>
-    <a href="#kalendarz">📅 Kalendarz</a>
-    <a href="#tabela">📊 Tabele</a>
-</nav>
-
-     <div class="match">
-  <h2>🇵🇱 Polska 3 : 0 Francja 🇫🇷</h2>
-  <p>🏆 Polska wygrywa!</p>
-</div>
-
-
-    <section class="section" id="wyniki">
-        <h2>🔥 Ostatnie wyniki Polski</h2>
-
-        <div class="match">
-            <span>🇵🇱 Polska</span>
-            <span class="result">3 : 0</span>
-            <span>🇸🇮 Słowenia</span>
-        </div>
-
-        <div class="match">
-            <span>🇵🇱 Polska</span>
-            <span class="result">3 : 0</span>
-            <span>🇩🇪 Niemcy</span>
-        </div>
-
-        <div class="match">
-            <span>🇵🇱 Polska</span>
-            <span class="result">3 : 0</span>
-            <span>🇱🇻 Łotwa</span>
-        </div>
-
-        <div class="match">
-            <span>🇵🇱 Polska</span>
-            <span class="result">2 : 3</span>
-            <span>🇧🇬 Bułgaria</span>
-        </div>
-
-        <div class="match">
-            <span>🇵🇱 Polska</span>
-            <span class="result">3 : 0</span>
-            <span>🇺🇦 Ukraina</span>
-        </div>
-
-        <div class="match">
-            <span>🇵🇱 Polska</span>
-            <span class="result">3 : 0</span>
-            <span>🇲🇰 Macedonia Północna</span>
-        </div>
-
-        <div class="match">
-            <span>🇵🇱 Polska</span>
-            <span class="result">3 : 0</span>
-            <span>🇮🇱 Izrael</span>
-        </div>
-
-        <div class="match">
-            <span>🇵🇱 Polska</span>
-            <span class="result">3 : 0</span>
-            <span>🇵🇹 Portugalia</span>
-        </div>
-    </section>
-
-
-    <section class="section" id="terminarz">
-        <h2>📅 Najbliższy mecz</h2>
-
-        <div class="match upcoming">
-            <span>🇵🇱 POLSKA</span>
-            <span class="result">21:00</span>
-            <span>🇫🇷 FRANCJA</span>
-        </div>
-
-        <p style="text-align:center; margin-top:15px;">
-            26.09.2026 • Finał Mistrzostw Europy
-        </p>
-    </section>
-
-
-    <section class="section">
-        <h2>📊 Stan turnieju</h2>
-
-        <p>🇵🇱 Polska awansowała do finału po zwycięstwie 3:0 nad Słowenią.</p>
-        <p style="margin-top:10px;">
-            🇫🇷 Francja awansowała po zwycięstwie 3:1 nad Finlandią.
-        </p>
-    </section>
-
-</main>
-
-<footer>
-    <p>© 2026 Siatkówka Polska</p>
-    <p>Wyniki aktualizowane na podstawie dostępnych danych</p>
-</footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Zawodnicy Polski 2026</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f1f3f6;
-            color: #111;
-        }
-
-        header {
-            background: linear-gradient(135deg, #d00000, #ffffff);
-            padding: 35px 20px;
-            text-align: center;
-            color: white;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        nav {
-            background: #111;
-            padding: 15px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        h2 {
-            margin-bottom: 25px;
-        }
-
-        .players {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .player {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px #0002;
-            transition: 0.2s;
-        }
-
-        .player:hover {
-            transform: translateY(-5px);
-        }
-
-        .player-photo {
-            height: 230px;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 70px;
-        }
-
-        .player-info {
-            padding: 20px;
-        }
-
-        .player-info h3 {
-            font-size: 23px;
-            margin-bottom: 8px;
-        }
-
-        .position {
-            color: #d00000;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .data {
-            line-height: 1.8;
-        }
-
-        .data b {
-            color: #555;
-        }
-
-        .bio {
-            margin-top: 12px;
-            line-height: 1.5;
-        }
-
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 850px) {
-            .players {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .players {
-                grid-template-columns: 1fr;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
 <header>
-    <h1>🇵🇱 Reprezentacja Polski 2026</h1>
-    <p>Zawodnicy na Mistrzostwa Europy</p>
+
+    <h1>POLSKA <span>SIATKÓWKA</span> 🇵🇱</h1>
+
+    <p>Wyniki • Aktualności • PlusLiga • Reprezentacja • Zawodnicy</p>
+
 </header>
 
-<nav>
-    <a href="index.html">Strona główna</a>
-    <a href="zawodnicy.html">Zawodnicy</a>
-</nav>
 
-<main>
+<!-- MENU -->
 
-    <h2>🏐 Kadra Polski 2026</h2>
+<div class="menu-box">
 
-    <div class="players">
+    <nav class="menu">
 
-        <!-- JAN FIRLEJ -->
+        <button class="active" onclick="showPage('home', this)">
+            🏠 Strona główna
+        </button>
 
-        <div class="player">
-            <div class="player-photo">🏐</div>
+        <button onclick="showPage('live', this)">
+            📡 Wyniki LIVE
+        </button>
 
-            <div class="player-info">
-                <h3>Jan Firlej</h3>
-                <div class="position">Rozgrywający</div>
+        <button onclick="showPage('plusliga', this)">
+            🏆 PlusLiga
+        </button>
 
-                <div class="data">
-                    <p><b>Numer:</b> 96</p>
-                    <p><b>Rok urodzenia:</b> 1996</p>
-                    <p><b>Wzrost:</b> 188 cm</p>
-                    <p><b>Klub:</b> Projekt Warszawa</p>
-                </div>
+        <button onclick="showPage('polska', this)">
+            🇵🇱 Reprezentacja
+        </button>
 
-                <p class="bio">
-                    Polski rozgrywający i reprezentant kraju.
-                    W 2026 roku znalazł się w kadrze Polski na ME.
-                </p>
-            </div>
+        <button onclick="showPage('players', this)">
+            👤 Zawodnicy
+        </button>
+
+        <button onclick="showPage('calendar', this)">
+            📅 Kalendarz
+        </button>
+
+    </nav>
+
+</div>
+
+
+<div class="container">
+
+
+<!-- STRONA GŁÓWNA -->
+
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <h2>
+            Witaj na stronie
+            <span>Polska Siatkówka</span>
+        </h2>
+
+        <p>
+            Wszystko o polskiej siatkówce w jednym miejscu.
+            Wyniki meczów, PlusLiga, reprezentacja Polski,
+            zawodnicy oraz najważniejsze wydarzenia.
+        </p>
+
+    </div>
+
+
+    <h2 class="section-title">
+        Najnowsze informacje
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>📡 Wyniki LIVE</h3>
+            <p>
+                Sprawdzaj wyniki najważniejszych spotkań.
+            </p>
         </div>
 
-
-        <!-- MARCIN KOMENDA -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Marcin Komenda</h3>
-                <div class="position">Rozgrywający</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 4</p>
-                    <p><b>Rok urodzenia:</b> 1996</p>
-                    <p><b>Wzrost:</b> 198 cm</p>
-                    <p><b>Klub:</b> Bogdanka LUK Lublin</p>
-                </div>
-
-                <p class="bio">
-                    Doświadczony polski rozgrywający.
-                    Występuje w reprezentacji Polski oraz klubie Bogdanka LUK Lublin.
-                </p>
-            </div>
+        <div class="card">
+            <h3>🏆 PlusLiga</h3>
+            <p>
+                Tabele, mecze i informacje z PlusLigi.
+            </p>
         </div>
 
-
-        <!-- TOMASZ FORNAL -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Tomasz Fornal</h3>
-                <div class="position">Przyjmujący</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 21</p>
-                    <p><b>Rok urodzenia:</b> 1997</p>
-                    <p><b>Wzrost:</b> 200 cm</p>
-                    <p><b>Klub:</b> Aluron CMC Warta Zawiercie</p>
-                </div>
-
-                <p class="bio">
-                    Polski przyjmujący i reprezentant kraju.
-                    Jeden z zawodników kadry Polski na ME 2026.
-                </p>
-            </div>
+        <div class="card">
+            <h3>🇵🇱 Reprezentacja</h3>
+            <p>
+                Aktualności dotyczące reprezentacji Polski.
+            </p>
         </div>
 
-
-        <!-- WILFREDO LEON -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Wilfredo León</h3>
-                <div class="position">Przyjmujący</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 9</p>
-                    <p><b>Rok urodzenia:</b> 1993</p>
-                    <p><b>Wzrost:</b> 201 cm</p>
-                    <p><b>Klub:</b> Bogdanka LUK Lublin</p>
-                </div>
-
-                <p class="bio">
-                    Przyjmujący reprezentacji Polski.
-                    Znany z bardzo mocnej zagrywki i skutecznego ataku.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- KAMIL SEMENIUK -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Kamil Semeniuk</h3>
-                <div class="position">Przyjmujący</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 16</p>
-                    <p><b>Rok urodzenia:</b> 1996</p>
-                    <p><b>Wzrost:</b> 195 cm</p>
-                    <p><b>Klub:</b> Sir Safety Perugia</p>
-                </div>
-
-                <p class="bio">
-                    Reprezentant Polski występujący na pozycji przyjmującego.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- ARTUR SZALPUK -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Artur Szalpuk</h3>
-                <div class="position">Przyjmujący</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 12</p>
-                    <p><b>Rok urodzenia:</b> 1995</p>
-                    <p><b>Wzrost:</b> 201 cm</p>
-                    <p><b>Klub:</b> Asseco Resovia</p>
-                </div>
-
-                <p class="bio">
-                    Polski przyjmujący i reprezentant kraju.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- ALEKSANDER ŚLIWKA -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Aleksander Śliwka</h3>
-                <div class="position">Przyjmujący • Kapitan</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 11</p>
-                    <p><b>Rok urodzenia:</b> 1995</p>
-                    <p><b>Wzrost:</b> 196 cm</p>
-                    <p><b>Klub:</b> Projekt Warszawa</p>
-                </div>
-
-                <p class="bio">
-                    Doświadczony reprezentant Polski.
-                    W kadrze 2026 pełni funkcję kapitana.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- SZYMON JAKUBISZAK -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Szymon Jakubiszak</h3>
-                <div class="position">Środkowy</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 34</p>
-                    <p><b>Rok urodzenia:</b> 1998</p>
-                    <p><b>Wzrost:</b> 210 cm</p>
-                    <p><b>Klub:</b> ZAKSA Kędzierzyn-Koźle</p>
-                </div>
-
-                <p class="bio">
-                    Polski środkowy reprezentujący kraj w sezonie 2026.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- BARTŁOMIEJ LEMAŃSKI -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Bartłomiej Lemański</h3>
-                <div class="position">Środkowy</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 7</p>
-                    <p><b>Rok urodzenia:</b> 1996</p>
-                    <p><b>Wzrost:</b> 217 cm</p>
-                    <p><b>Klub:</b> Projekt Warszawa</p>
-                </div>
-
-                <p class="bio">
-                    Środkowy reprezentacji Polski.
-                    Jego głównym zadaniem jest gra w bloku i ataku ze środka.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- JAKUB NOWAK -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Jakub Nowak</h3>
-                <div class="position">Środkowy</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 73</p>
-                    <p><b>Rok urodzenia:</b> 2005</p>
-                    <p><b>Wzrost:</b> 205 cm</p>
-                    <p><b>Klub:</b> Norwid Częstochowa</p>
-                </div>
-
-                <p class="bio">
-                    Młody polski środkowy i reprezentant kraju.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- BARTŁOMIEJ BOŁĄDŹ -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Bartłomiej Bołądź</h3>
-                <div class="position">Atakujący</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 30</p>
-                    <p><b>Rok urodzenia:</b> 1994</p>
-                    <p><b>Wzrost:</b> 204 cm</p>
-                    <p><b>Klub:</b> Aluron CMC Warta Zawiercie</p>
-                </div>
-
-                <p class="bio">
-                    Polski atakujący i reprezentant kraju.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- KEWIN SASAK -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Kewin Sasak</h3>
-                <div class="position">Atakujący</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 35</p>
-                    <p><b>Rok urodzenia:</b> 1997</p>
-                    <p><b>Wzrost:</b> 208 cm</p>
-                    <p><b>Klub:</b> Bogdanka LUK Lublin</p>
-                </div>
-
-                <p class="bio">
-                    Polski atakujący i reprezentant kraju.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- JAKUB POPIWCZAK -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Jakub Popiwczak</h3>
-                <div class="position">Libero</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 3</p>
-                    <p><b>Rok urodzenia:</b> 1996</p>
-                    <p><b>Wzrost:</b> 180 cm</p>
-                    <p><b>Klub:</b> Aluron CMC Warta Zawiercie</p>
-                </div>
-
-                <p class="bio">
-                    Doświadczony polski libero i reprezentant kraju.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- MAKSYMILIAN GRANIECZNY -->
-
-        <div class="player">
-            <div class="player-photo">🏐</div>
-
-            <div class="player-info">
-                <h3>Maksymilian Granieczny</h3>
-                <div class="position">Libero</div>
-
-                <div class="data">
-                    <p><b>Numer:</b> 18</p>
-                    <p><b>Rok urodzenia:</b> 2005</p>
-                    <p><b>Wzrost:</b> 179 cm</p>
-                    <p><b>Klub:</b> Ślepsk Malow Suwałki</p>
-                </div>
-
-                <p class="bio">
-                    Młody polski libero i reprezentant Polski.
-                </p>
-            </div>
+        <div class="card">
+            <h3>👤 Zawodnicy</h3>
+            <p>
+                Profile i informacje o polskich siatkarzach.
+            </p>
         </div>
 
     </div>
 
-</main>
+</section>
 
-<footer>
-    <p>© 2026 Siatkówka Polska</p>
-</footer>
 
-</body>
-</html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<section id="plusliga">
+<!-- LIVE -->
 
-  <h1>🏐 PlusLiga</h1>
+<section id="live" class="page">
 
-  <div class="plusliga-menu">
-    <button onclick="pokazPL('tabela')">Tabela</button>
-    <button onclick="pokazPL('wyniki')">Dodaj wynik</button>
-  </div>
+    <h2 class="section-title">
+        📡 Wyniki LIVE
+    </h2>
 
-  <div id="pl-tabela">
-    <h2>Tabela PlusLigi</h2>
+    <div class="live-match">
 
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Drużyna</th>
-          <th>M</th>
-          <th>W</th>
-          <th>P</th>
-          <th>PKT</th>
-        </tr>
-      </thead>
-      <tbody id="tabelaPL"></tbody>
-    </table>
-  </div>
+        <div class="live">
+            LIVE
+        </div>
 
-  <div id="pl-wyniki" style="display:none">
+        <h2>Polska 🇵🇱 vs Brazylia 🇧🇷</h2>
 
-    <h2>Dodaj wynik meczu</h2>
+        <div class="score">
+            0 : 0
+        </div>
 
-    <label>Gospodarz</label>
-    <select id="gospodarz"></select>
+        <p>
+            Mecz jeszcze się nie rozpoczął
+        </p>
 
-    <label>Gość</label>
-    <select id="gosc"></select>
-
-    <label>Wynik</label>
-    <select id="wynik">
-      <option value="3:0">3:0</option>
-      <option value="3:1">3:1</option>
-      <option value="3:2">3:2</option>
-      <option value="2:3">2:3</option>
-      <option value="1:3">1:3</option>
-      <option value="0:3">0:3</option>
-    </select>
-
-    <button onclick="dodajWynik()">DODAJ WYNIK</button>
-
-    <h2>Rozegrane mecze</h2>
-    <div id="listaWynikow"></div>
-
-  </div>
+    </div>
 
 </section>
 
-<style>
 
-#plusliga {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-}
+<!-- PLUSLIGA -->
 
-.plusliga-menu {
-  display: flex;
-  gap: 10px;
-  margin: 20px 0;
-}
+<section id="plusliga" class="page">
 
-#plusliga button {
-  background: #111827;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
+    <h2 class="section-title">
+        🏆 PlusLiga
+    </h2>
 
-#plusliga button:hover {
-  background: #2563eb;
-}
+    <div class="cards">
 
-#plusliga select {
-  display: block;
-  width: 100%;
-  max-width: 400px;
-  padding: 12px;
-  margin: 8px 0 18px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
+        <div class="card">
+            <h3>📊 Tabela</h3>
+            <p>
+                Tutaj będzie tabela PlusLigi.
+            </p>
+        </div>
 
-#plusliga table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  color: #111;
-}
+        <div class="card">
+            <h3>🏐 Mecze</h3>
+            <p>
+                Tutaj będą najbliższe spotkania.
+            </p>
+        </div>
 
-#plusliga th,
-#plusliga td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
-}
+        <div class="card">
+            <h3>🔥 Aktualności</h3>
+            <p>
+                Najnowsze informacje z PlusLigi.
+            </p>
+        </div>
 
-#plusliga th {
-  background: #111827;
-  color: white;
-}
+    </div>
 
-#plusliga td:nth-child(2) {
-  text-align: left;
-  font-weight: bold;
-}
+</section>
 
-.wynikPL {
-  padding: 12px;
-  margin: 8px 0;
-  background: #f1f5f9;
-  border-radius: 8px;
-}
 
-@media(max-width:600px) {
+<!-- POLSKA -->
 
-  #plusliga {
-    padding: 10px;
-  }
+<section id="polska" class="page">
 
-  #plusliga table {
-    font-size: 12px;
-  }
+    <h2 class="section-title">
+        🇵🇱 Reprezentacja Polski
+    </h2>
 
-  #plusliga th,
-  #plusliga td {
-    padding: 7px 3px;
-  }
+    <div class="cards">
 
-}
+        <div class="card">
+            <h3>🇵🇱 Polska</h3>
+            <p>
+                Aktualności reprezentacji Polski.
+            </p>
+        </div>
 
-</style>
+        <div class="card">
+            <h3>🏐 Mecze</h3>
+            <p>
+                Wyniki i terminarz reprezentacji.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🏆 Turnieje</h3>
+            <p>
+                Najważniejsze turnieje reprezentacji.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ZAWODNICY -->
+
+<section id="players" class="page">
+
+    <h2 class="section-title">
+        👤 Zawodnicy
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🇵🇱 Polscy siatkarze</h3>
+            <p>
+                Profile zawodników reprezentacji Polski.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>⭐ Najlepsi zawodnicy</h3>
+            <p>
+                Najważniejsze informacje i statystyki.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- KALENDARZ -->
+
+<section id="calendar" class="page">
+
+    <h2 class="section-title">
+        📅 Kalendarz meczów
+    </h2>
+
+    <table>
+
+        <tr>
+            <th>Data</th>
+            <th>Mecz</th>
+            <th>Godzina</th>
+        </tr>
+
+        <tr>
+            <td>10.10.2026</td>
+            <td>Polska 🇵🇱 vs Brazylia 🇧🇷</td>
+            <td>20:30</td>
+        </tr>
+
+        <tr>
+            <td>12.10.2026</td>
+            <td>Polska 🇵🇱 vs Włochy 🇮🇹</td>
+            <td>18:00</td>
+        </tr>
+
+    </table>
+
+</section>
+
+
+</div>
+
+
+<footer>
+
+    🇵🇱 POLSKA SIATKÓWKA  
+    <br>
+    Razem tworzymy historię
+
+</footer>
+
 
 <script>
 
-const druzynyPL = [
+function showPage(pageId, button) {
 
- 
-  "Aluron CMC Warta Zawiercie",
-  "Projekt Warszawa",
-  "ZAKSA Kędzierzyn-Koźle",
-  "Asseco Resovia Rzeszów",
-  "Bogdanka LUK Lublin",
-  "Trefl Gdańsk",
-  "Indykpol AZS Olsztyn",
-  "Ślepsk Malow Suwałki",
-  "Steam Hemarpol Norwid Częstochowa",
-  "Cuprum Stilon Gorzów",
-  "GKS Katowice",
-  "PSG Stal Nysa",
-  "Barkom Każany Lwów",
-  "Czarni Radom"
-];
+    const pages = document.querySelectorAll(".page");
 
-let meczePL = [];
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
 
-let tabelaPL = {};
+    document.getElementById(pageId).classList.add("active");
 
-function przygotujTabele() {
 
-  tabelaPL = {};
+    const buttons = document.querySelectorAll(".menu button");
 
-  druzynyPL.forEach(druzyna => {
+    buttons.forEach(btn => {
+        btn.classList.remove("active");
+    });
 
-    tabelaPL[druzyna] = {
+    button.classList.add("active");
 
-      mecze: 0,
-      wygrane: 0,
-      przegrane: 0,
-      punkty: 0
-
-    };
-
-  });
-
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
-
-function pokazPL(co) {
-
-  document.getElementById("pl-tabela").style.display =
-    co === "tabela" ? "block" : "none";
-
-  document.getElementById("pl-wyniki").style.display =
-    co === "wyniki" ? "block" : "none";
-
-}
-
-function uzupelnijDruzyny() {
-
-  const gospodarze = document.getElementById("gospodarz");
-  const goscie = document.getElementById("gosc");
-
-  druzynyPL.forEach(druzyna => {
-
-    gospodarze.innerHTML +=
-      `<option value="${druzyna}">${druzyna}</option>`;
-
-    goscie.innerHTML +=
-      `<option value="${druzyna}">${druzyna}</option>`;
-
-  });
-
-}
-
-function dodajWynik() {
-
-  const gospodarz =
-    document.getElementById("gospodarz").value;
-
-  const gosc =
-    document.getElementById("gosc").value;
-
-  const wynik =
-    document.getElementById("wynik").value;
-
-  if (gospodarz === gosc) {
-
-    alert("Nie możesz wybrać tej samej drużyny");
-
-    return;
-
-  }
-
-  const [setyGospodarz, setyGosc] =
-    wynik.split(":").map(Number);
-
-  meczePL.push({
-
-    gospodarz: gospodarz,
-    gosc: gosc,
-    wynik: wynik,
-    setyGospodarz: setyGospodarz,
-    setyGosc: setyGosc
-
-  });
-
-  przeliczTabele();
-
-  pokazWyniki();
-
-}
-
-function przeliczTabele() {
-
-  przygotujTabele();
-
-  meczePL.forEach(mecz => {
-
-    const gospodarze =
-      tabelaPL[mecz.gospodarz];
-
-    const goscie =
-      tabelaPL[mecz.gosc];
-
-    gospodarze.mecze++;
-    goscie.mecze++;
-
-    if (mecz.setyGospodarz > mecz.setyGosc) {
-
-      gospodarze.wygrane++;
-      goscie.przegrane++;
-
-      if (mecz.setyGospodarz === 3 &&
-          mecz.setyGosc === 2) {
-
-        gospodarze.punkty += 2;
-        goscie.punkty += 1;
-
-      } else {
-
-        gospodarze.punkty += 3;
-
-      }
-
-    } else {
-
-      goscie.wygrane++;
-      gospodarze.przegrane++;
-
-      if (mecz.setyGosc === 3 &&
-          mecz.setyGospodarz === 2) {
-
-        goscie.punkty += 2;
-        gospodarze.punkty += 1;
-
-      } else {
-
-        goscie.punkty += 3;
-
-      }
-
-    }
-
-  });
-
-  wyswietlTabele();
-
-}
-
-function wyswietlTabele() {
-
-  const tbody =
-    document.getElementById("tabelaPL");
-
-  const posortowane =
-    Object.entries(tabelaPL)
-      .sort((a,b) => {
-
-        if (b[1].punkty !== a[1].punkty) {
-
-          return b[1].punkty - a[1].punkty;
-
-        }
-
-        return b[1].wygrane - a[1].wygrane;
-
-      });
-
-  tbody.innerHTML = "";
-
-  posortowane.forEach((druzyna, index) => {
-
-    tbody.innerHTML += `
-
-      <tr>
-
-        <td>${index + 1}</td>
-
-        <td>${druzyna[0]}</td>
-
-        <td>${druzyna[1].mecze}</td>
-
-        <td>${druzyna[1].wygrane}</td>
-
-        <td>${druzyna[1].przegrane}</td>
-
-        <td><b>${druzyna[1].punkty}</b></td>
-
-      </tr>
-
-    `;
-
-  });
-
-}
-
-function pokazWyniki() {
-
-  const lista =
-    document.getElementById("listaWynikow");
-
-  lista.innerHTML = "";
-
-  meczePL.forEach((mecz, index) => {
-
-    lista.innerHTML += `
-
-      <div class="wynikPL">
-
-        <b>${mecz.gospodarz}</b>
-
-        ${mecz.wynik}
-
-        <b>${mecz.gosc}</b>
-
-      </div>
-
-    `;
-
-  });
-
-}
-
-przygotujTabele();
-
-uzupelnijDruzyny();
-
-wyswietlTabele();
 
 </script>
+
+</body>
+</html>
