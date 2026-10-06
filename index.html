@@ -5,156 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siatkówka Polska</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    
+<style>
+.menu-siatka {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+  background: #101b35;
+  border: 2px solid #e6b84c;
+  border-radius: 18px;
+  margin: 15px 0;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f4f8;
-            color: #111;
-        }
+.menu-siatka a {
+  color: white;
+  background: #20365f;
+  border: 1px solid #e6b84c;
+  border-radius: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-        header {
-            background: linear-gradient(135deg, #d50000, #ffffff);
-            padding: 35px 20px;
-            text-align: center;
-            color: white;
-        }
+.menu-siatka a:hover {
+  background: #e6b84c;
+  color: #101b35;
+}
 
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
+.sekcja-siatka {
+  border: 2px solid #e6b84c;
+  border-radius: 18px;
+  padding: 20px;
+  margin: 15px 0;
+}
+</style>
 
-        nav {
-            background: #111;
-            padding: 15px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .hero {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 15px #0002;
-            margin-bottom: 30px;
-        }
-
-        .hero h2 {
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
-
-        .final {
-            font-size: 28px;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-
-        .time {
-            font-size: 20px;
-            color: #d00000;
-            font-weight: bold;
-        }
-
-        .section {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px #0001;
-        }
-
-        .section h2 {
-            margin-bottom: 20px;
-        }
-
-        .match {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-            gap: 10px;
-        }
-
-        .match:last-child {
-            border-bottom: none;
-        }
-
-        .result {
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .upcoming {
-            background: #fff3f3;
-            border-radius: 10px;
-            border: 2px solid #d00000;
-        }
-
-        .live {
-            color: #d00000;
-            font-weight: bold;
-        }
-
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 28px;
-            }
-
-            .match {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            nav a {
-                display: inline-block;
-                margin: 5px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>🇵🇱 SIATKÓWKA POLSKA</h1>
-    <p>Aktualne wyniki reprezentacji Polski</p>
-</header>
-
-<nav>
-    <a href="#wyniki">Wyniki</a>
-    <a href="#final">Finał</a>
-    <a href="#terminarz">Terminarz</a>
+<nav class="menu-siatka">
+  <a href="#glowna">Strona główna</a>
+  <a href="#wyniki">Wyniki LIVE</a>
+  <a href="#plusliga">PlusLiga</a>
+  <a href="#reprezentacja">Reprezentacja Polski</a>
+  <a href="#zawodnicy">Zawodnicy</a>
 </nav>
-
 
 
      <div class="match">
