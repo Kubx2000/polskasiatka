@@ -7,48 +7,53 @@
 
     
 <style>
-.menu-siatka {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 15px;
-  background: #101b35;
-  border: 2px solid #e6b84c;
-  border-radius: 18px;
-  margin: 15px 0;
+.menu {
+    width: 95%;
+    margin: 20px auto;
+    padding: 10px;
+    background: linear-gradient(135deg, #07152d, #102b52);
+    border: 2px solid #e30613;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(227, 6, 19, 0.35);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.menu-siatka a {
-  color: white;
-  background: #20365f;
-  border: 1px solid #e6b84c;
-  border-radius: 12px;
-  padding: 12px 16px;
-  text-decoration: none;
-  font-weight: bold;
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 1px solid #31527d;
+    background: #0b1d38;
+    transition: 0.2s;
 }
 
-.menu-siatka a:hover {
-  background: #e6b84c;
-  color: #101b35;
+.menu a:hover {
+    background: #e30613;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(227, 6, 19, 0.4);
 }
 
-.sekcja-siatka {
-  border: 2px solid #e6b84c;
-  border-radius: 18px;
-  padding: 20px;
-  margin: 15px 0;
+.menu a.active {
+    background: #e30613;
+    border-color: #fff;
 }
 </style>
 
-<nav class="menu-siatka">
-  <a href="#glowna">Strona główna</a>
-  <a href="#wyniki">Wyniki LIVE</a>
-  <a href="#plusliga">PlusLiga</a>
-  <a href="#reprezentacja">Reprezentacja Polski</a>
-  <a href="#zawodnicy">Zawodnicy</a>
+<nav class="menu">
+    <a href="#glowna" class="active">🏠 Strona główna</a>
+    <a href="#live">📡 Wyniki LIVE</a>
+    <a href="#plusliga">🏆 PlusLiga</a>
+    <a href="#reprezentacja">🇵🇱 Reprezentacja</a>
+    <a href="#zawodnicy">👤 Zawodnicy</a>
+    <a href="#kalendarz">📅 Kalendarz</a>
+    <a href="#tabela">📊 Tabele</a>
 </nav>
-
 
      <div class="match">
   <h2>🇵🇱 Polska 3 : 0 Francja 🇫🇷</h2>
